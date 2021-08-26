@@ -1,0 +1,30 @@
+<h1>List customer pages</h1>
+<form (ngSubmit)="getByFilter()">
+    <input type="number" value = "" [(ngModel)]="filters.id" name="id" placeholder="Enter search id">
+    <input type="text" value = "" [(ngModel)]="filters.name" name="name" placeholder="Enter search name">
+    <input type="text" value = "" [(ngModel)]="filters.phone" name="phone" placeholder="Enter search phone number">
+    <button type="submit">Search</button>
+</form>
+
+<table id="customers">
+    <thead>
+        <th>Id</th>
+        <th>Full name</th>
+        <th>Type</th>
+        <th>Gender</th>
+        <th>Phone number</th>
+        <th>Position</th>
+        <th>Action</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let customer of customers">
+            <td><a [routerLink]="['/ticket-history', customer.id]">{{customer.id}}</a></td>
+            <td>{{customer.fullName}}</td>
+            <td>{{customer.type}}</td>
+            <td>{{customer.gender}}</td>
+            <td>{{customer.phoneNumber}}</td>
+            <td>{{customer.position}}</td>
+            <td><a [routerLink]="['/customer-assign', customer.id]">Assign a new locker</a></td>
+        </tr>
+    </tbody>
+</table>

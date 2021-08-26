@@ -1,0 +1,25 @@
+<h1>Customer assign page:</h1>
+<label> Customer id:
+    <input type="text" name="customer-id" [(ngModel)]="customer.id" value="{{customer.id}}" readonly>
+</label>
+<label> Customer name:
+    <input type="text" name="full-name" [(ngModel)]="customer.fullName" value="{{customer.fullName}}" readonly>
+</label>
+<label> Type:
+    <input type="text" name="type" [(ngModel)]="customer.type" value="{{customer.type}}" readonly>
+</label>
+<label> Gender:
+    <input type="text" name="gender" [(ngModel)]="customer.gender" value="{{customer.gender}}" readonly>
+</label>
+
+
+<form (ngSubmit)="submit()" [(ngModel)]="selectedLockers">
+    <label>Choose lockers you want to assign</label>
+    <div *ngFor="let locker of lockers">
+        <input type="checkbox" (change)="addOrRemove(locker)"/>
+      {{ locker.lockerName }}
+    </div>
+    <label>Remark</label>
+    <input type="text" [(ngModel)]="remark" required [ngModelOptions]="{standalone: true}" placeholder="Enter remark">
+    <button type=" submit">submit</button>
+</form>

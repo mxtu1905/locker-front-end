@@ -1,0 +1,64 @@
+<h1>List ticket page</h1>
+<select [(ngModel)] = "selectedMode">
+    <option *ngFor="let mode of selectMode">{{mode}}</option>
+</select>
+<button (click)="search()">Search</button>
+
+<form (ngSubmit)="getByFilter()">
+    <input required="true" type="date" value = "" [(ngModel)]="filter.startDate" name="startDate" placeholder="Enter start date">
+    <input required="true" type="date" value = "" [(ngModel)]="filter.toDate" name="toDate" placeholder="Enter to date">
+    <button type="submit">Filter</button>
+</form>
+
+
+<table id="tickets">
+    <thead>
+        <th>Id</th>
+        <th>Start date time</th>
+        <th>End date time</th>
+        <th>Remark</th>
+        <th>Locker's name</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let inUseTicket of inUseTickets">
+            <td><a [routerLink]="['/ticket-detail', inUseTicket.id]">{{inUseTicket.id}}</a></td>
+            <td>{{inUseTicket.startDateTime}}</td>
+            <td>{{inUseTicket.endDateTime}}</td>
+            <td>{{inUseTicket.remark}}</td>
+            <td>
+                <ul>
+                    <li *ngFor="let locker of inUseTicket.lockers">
+                        <p>{{locker.lockerName}}</p>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        <tr *ngFor="let returnedTicket of returnedTickets">
+            <td><a [routerLink]="['/ticket-detail', returnedTicket.id]">{{returnedTicket.id}}</a></td>
+            <td>{{returnedTicket.startDateTime}}</td>
+            <td>{{returnedTicket.endDateTime}}</td>
+            <td>{{returnedTicket.remark}}</td>
+            <td>
+                <ul>
+                    <li *ngFor="let locker of returnedTicket.lockers">
+                        <p>{{locker.lockerName}}</p>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+
+        <tr *ngFor="let filterTicket of filterTickets">
+            <td><a [routerLink]="['/ticket-detail', filterTicket.id]">{{filterTicket.id}}</a></td>
+            <td>{{filterTicket.startDateTime}}</td>
+            <td>{{filterTicket.endDateTime}}</td>
+            <td>{{filterTicket.remark}}</td>
+            <td>
+                <ul>
+                    <li *ngFor="let locker of filterTicket.lockers">
+                        <p>{{locker.lockerName}}</p>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>

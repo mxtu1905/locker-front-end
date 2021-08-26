@@ -1,0 +1,30 @@
+<h1>Ticket detail</h1>
+<label> Ticket id:
+    <input type="text" name="card-id" [(ngModel)] = "ticket.id" value="{{ticket.id}}" readonly>
+</label>
+<label> Customer id:
+    <input type="text" name="customer-id" [(ngModel)] = "customer.id" value="{{customer.id}}" readonly>
+</label>
+<label> Customer name:
+    <input type="text" name="full-name" [(ngModel)] = "customer.fullName" value="{{customer.fullName}}" readonly>
+</label>
+<label> Type:
+    <input type="text" name="type" [(ngModel)] = "customer.type" value="{{customer.type}}" readonly>
+</label>
+<label> Gender: 
+    <input type="text" name="gender" [(ngModel)] = "customer.gender" value="{{customer.gender}}" readonly>
+</label>
+<label> Phone number: 
+    <input type="text" name="gender" [(ngModel)] = "customer.phoneNumber" value="{{customer.phoneNumber}}" readonly>
+</label>
+<label> Remark
+    <input type="text" name="remark" [(ngModel)] = "ticket.remark" value="{{ticket.remark}}">
+</label>
+<label> Start date time:
+    <input type="date" name="start-date-time" [(ngModel)] = "ticket.startDateTime" value="{{ticket.startDateTime}}">
+</label>
+<label> End date time:
+    <input type="date" name="end-date-time" [(ngModel)] = "ticket.endDateTime" value="{{ticket.endDateTime}}">
+</label>
+<button (click)="return()">Return</button>
+<button (click)="update()">Update</button>

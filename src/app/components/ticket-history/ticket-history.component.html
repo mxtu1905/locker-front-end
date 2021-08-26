@@ -1,0 +1,17 @@
+<h1>Ticket history</h1>
+<table id="tickets">
+    <thead>
+        <th>Ticket id</th>
+        <th>Start date time</th>
+        <th>End date time</th>
+        <th>Remark</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let ticket of tickets">
+            <td>{{ticket.id}}</td>
+            <td>{{ticket.startDateTime}}</td>
+            <td>{{ticket.endDateTime}}</td>
+            <td>{{ticket.remark}}</td>
+        </tr>
+    </tbody>
+</table>
